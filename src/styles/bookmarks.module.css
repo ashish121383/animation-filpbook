@@ -1,0 +1,76 @@
+.bookmarkPanel {
+  width: 180px;
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-border);
+  overflow-y: auto;
+  flex-shrink: 0;
+  padding: 0.75rem;
+}
+
+.bookmarkTitle {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.bookmarkList {
+  list-style: none;
+}
+
+.bookmarkItem {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.bookmarkLink {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0.4rem 0.5rem;
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: left;
+  color: var(--color-text);
+  transition: background var(--transition);
+}
+
+.bookmarkLink:hover {
+  background: var(--color-surface-elevated);
+}
+
+.bookmarkPage {
+  font-size: 0.7rem;
+  color: var(--color-primary-light);
+}
+
+.bookmarkName {
+  font-size: 0.8rem;
+}
+
+.bookmarkRemove {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.bookmarkRemove:hover {
+  color: var(--color-error);
+  background: rgba(225, 112, 85, 0.1);
+}
+
+@media (max-width: 768px) {
+  .bookmarkPanel {
+    display: none;
+  }
+}
