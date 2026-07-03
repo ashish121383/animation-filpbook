@@ -48,6 +48,13 @@ class Settings(BaseSettings):
     upload_dir: str = Field(default="./uploads", alias="UPLOAD_DIR")
     max_upload_size_mb: int = Field(default=500, alias="MAX_UPLOAD_SIZE_MB")
     allowed_extensions: str = Field(default="pdf", alias="ALLOWED_EXTENSIONS")
+    storage_backend: Literal["local", "s3"] = Field(default="local", alias="STORAGE_BACKEND")
+
+    s3_bucket: str = Field(default="", alias="S3_BUCKET")
+    s3_region: str = Field(default="us-east-1", alias="S3_REGION")
+    s3_access_key: str = Field(default="", alias="S3_ACCESS_KEY")
+    s3_secret_key: str = Field(default="", alias="S3_SECRET_KEY")
+    s3_endpoint_url: str | None = Field(default=None, alias="S3_ENDPOINT_URL")
 
     ocr_default_engine: str = Field(default="paddleocr", alias="OCR_DEFAULT_ENGINE")
     ocr_languages: str = Field(default="en", alias="OCR_LANGUAGES")

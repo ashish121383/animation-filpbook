@@ -59,7 +59,7 @@ docker compose up --build
 ## Module Progress
 
 - [x] **Module 1**: Project Initialization (React, FastAPI, Docker, Health Check, Base Layout)
-- [ ] **Module 2**: PDF Upload & Storage
+- [x] **Module 2**: PDF Upload & Storage
 - [ ] **Module 3**: OCR Pipeline
 - [ ] **Module 4**: Page Rendering & Layers
 - [ ] **Module 5**: Page Flip Engine
@@ -69,7 +69,9 @@ docker compose up --build
 - [ ] **Module 9**: Performance Optimization
 - [ ] **Module 10**: Deployment & CI/CD
 
-## API Endpoints (Module 1)
+## API Endpoints
+
+### Module 1 — Health
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -77,6 +79,17 @@ docker compose up --build
 | GET | `/api/v1/health` | Full health check |
 | GET | `/api/v1/health/live` | Liveness probe |
 | GET | `/api/v1/health/ready` | Readiness probe |
+
+### Module 2 — Documents & Upload
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/v1/upload` | Upload PDF file |
+| GET | `/api/v1/documents` | List documents (paginated) |
+| GET | `/api/v1/documents/{id}` | Get document by ID |
+| DELETE | `/api/v1/documents/{id}` | Delete document and file |
+| GET | `/api/v1/pages?document_id=` | List pages for document |
+| GET | `/api/v1/page/{id}` | Get page by ID |
 
 ## Testing
 

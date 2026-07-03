@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { HealthStatus } from '@/components/HealthStatus';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { Toolbar } from '@/components/Toolbar';
@@ -7,6 +7,7 @@ import { useAppStore } from '@/stores/appStore';
 
 export function MainLayout() {
   const sidebarOpen = useAppStore((state) => state.sidebarOpen);
+  const location = useLocation();
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -52,9 +53,13 @@ export function MainLayout() {
               Navigation
             </h2>
             <nav className="space-y-1">
-              <a
-                href="/"
-                className="flex items-center gap-3 rounded-lg bg-brand-50 px-3 py-2 text-sm font-medium text-brand-700 dark:bg-brand-900/30 dark:text-brand-300"
+              <Link
+                to="/"
+                className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                  location.pathname === '/'
+                    ? 'bg-brand-50 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300'
+                    : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'
+                }`}
               >
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
@@ -65,8 +70,15 @@ export function MainLayout() {
                   />
                 </svg>
                 Home
-              </a>
-              <span className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-gray-400">
+              </Link>
+              <Link
+                to="/upload"
+                className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                  location.pathname.startsWith('/upload') || location.pathname.startsWith('/documents')
+                    ? 'bg-brand-50 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300'
+                    : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'
+                }`}
+              >
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
                     strokeLinecap="round"
@@ -75,8 +87,8 @@ export function MainLayout() {
                     d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
                   />
                 </svg>
-                Upload PDF (Module 2)
-              </span>
+                Upload PDF
+              </Link>
             </nav>
           </div>
         </motion.aside>

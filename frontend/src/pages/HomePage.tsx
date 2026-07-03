@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { useHealthCheck } from '@/api/health';
 import { LoadingScreen } from '@/components/LoadingScreen';
 import { capitalize } from '@/utils/cn';
@@ -97,11 +98,11 @@ export function HomePage() {
         transition={{ delay: 0.8 }}
         className="mt-12 text-center"
       >
-        <button type="button" className="btn-primary px-8 py-3 text-base" disabled>
-          Upload PDF (Module 2)
-        </button>
+        <Link to="/upload" className="btn-primary inline-block px-8 py-3 text-base">
+          Upload PDF
+        </Link>
         <p className="mt-3 text-sm text-gray-500 dark:text-gray-400">
-          PDF upload and OCR pipeline will be available in Module 2
+          Upload documents for OCR processing and flipbook generation
         </p>
       </motion.div>
     </div>
