@@ -8,7 +8,7 @@ import type {
   UploadResponse,
 } from '@/types/document';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? '/api/v1';
+const API_BASE_URL = '/api/v1';
 
 export async function uploadDocument(
   file: File,
